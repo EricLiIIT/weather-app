@@ -1,10 +1,10 @@
 import "./App.css";
-import Card from "./weather/Card.js";
+import SearchLocation from "./query/SearchLocation";
 
 function App() {
   return (
     <div>
-      <Card />
+      <SearchLocation />
     </div>
   );
 }
