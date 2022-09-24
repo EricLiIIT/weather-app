@@ -40,9 +40,6 @@ export default function SearchLocation() {
     if (didSearch) {
       getCityCoordinates(location)
         .then((response) => {
-          console.log(response.data[0].city);
-          console.log(response.data[0].latitude);
-          console.log(response.data[0].longitude);
           setLatitude(response.data[0].latitude);
           setLongitude(response.data[0].longitude);
         })
