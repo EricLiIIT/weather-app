@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
-import { GEO_API_URL, geoDbCitiesApiOptions } from "../services/GetCity";
+import { getCityCoordinates } from "../services/GetCity";
 import Card from "../weather/Card.js";
 
 export default function SearchLocation() {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState("Chicago");
   const [didSearch, setDidSearch] = useState(false);
-  const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("");
+  const [latitude, setLatitude] = useState("41.875");
+  const [longitude, setLongitude] = useState("-87.625");
 
   function handleLocationInput(event) {
     setLocation(event.target.value);
@@ -17,23 +17,8 @@ export default function SearchLocation() {
     setDidSearch(true);
   }
 
-  function loadLocation(location) {
-    console.log("searchLocation.js:", location);
-    return fetch(
-      `${GEO_API_URL}/cities?&namePrefix=${location}`,
-      geoDbCitiesApiOptions
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(
-          response.data[0].name,
-          response.data[0].latitude,
-          response.data[0].longitude
-        );
-        setLatitude(response.data[0].latitude);
-        setLongitude(response.data[0].longitude);
-      })
-      .catch((err) => console.error(err));
+  function findLocation() {
+    navigator.geolocation.getCurrentPosition(success, locateError);
   }
 
   function success(position) {
@@ -43,23 +28,24 @@ export default function SearchLocation() {
   }
 
   function locateError(error) {
-    alert("Unable to retrieve your location");
-  }
-
-  function findLocation() {
-    navigator.geolocation.getCurrentPosition(success, locateError);
+    alert(`Unable to retrieve your location: ${error}`);
   }
 
   if (!navigator.geolocation) {
     alert("Unable to retrieve location");
-  } else {
-    // some loading animation...
-    findLocation();
   }
 
   useEffect(() => {
     if (didSearch) {
-      loadLocation(location);
+      getCityCoordinates(location)
+        .then((response) => {
+          console.log(response.data[0].city);
+          console.log(response.data[0].latitude);
+          console.log(response.data[0].longitude);
+          setLatitude(response.data[0].latitude);
+          setLongitude(response.data[0].longitude);
+        })
+        .catch((error) => console.log(error));
       setDidSearch(false);
     }
   }, [location, didSearch]);
@@ -85,10 +71,10 @@ export default function SearchLocation() {
           </p>
         </fieldset>
         <button type="button" onClick={findLocation}>
-          Find My Location
+          Use My Location
         </button>
       </form>
-      <Card latitude={latitude} longitude={longitude} />
+      <Card latitude={latitude} longitude={longitude} city={location} />
     </div>
   );
 }

@@ -6,4 +6,10 @@ export const geoDbCitiesApiOptions = {
   },
 };
 
-export const GEO_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo";
+export async function getCityCoordinates(city) {
+  const url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=1000000&namePrefix=${city.toString()}`;
+  const response = await fetch(url, geoDbCitiesApiOptions);
+  const data = response.json();
+
+  return data;
+}

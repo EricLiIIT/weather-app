@@ -4,16 +4,14 @@ import { getWeatherData } from "../services/GetWeatherData";
 const Card = (props) => {
   const [error, setError] = useState(null);
   const [currentTemp, setCurrentTemp] = useState();
-  // const [latitude, setLatitude] = useState(props.latitude)
-  // const [longitude, setLongitude] = useState(props.longitude)
-  // const [recievedLocation, setRecievedLocation] = useState(false);
+  const [city, setCity] = useState("Chicago");
 
   useEffect(() => {
-    // console.log("in card.js", Number(props.latitude), Number(props.longitude));
     getWeatherData(Number(props.latitude), Number(props.longitude)).then(
       (response) => {
-        console.log(response);
+        console.log("Card.js response", response);
         setCurrentTemp(response.current_weather.temperature);
+        setCity(props.city);
       },
       // prevent rendering errors
       (error) => {
@@ -21,12 +19,18 @@ const Card = (props) => {
         console.log(error);
       }
     );
-  }, [props.latitude, props.longitude]);
+  }, [props.latitude, props.longitude, props.city]);
 
   if (error) {
     return <div>Error: {error}</div>;
   } else {
-    return <div>Current Temp:{currentTemp}</div>;
+    return (
+      <div>
+        <p>City: {city}</p>
+        <p>Current Temp:{currentTemp}</p>
+        <p></p>
+      </div>
+    );
   }
 };
 
