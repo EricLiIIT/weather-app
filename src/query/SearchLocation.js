@@ -52,27 +52,24 @@ export default function SearchLocation() {
   }, [location, didSearch]);
 
   return (
-    <div>
+    <div class="form-container">
       <form onSubmit={handleManualSearch}>
-        <fieldset>
-          <legend>Enter city or automatically detect location:</legend>
-          <p>
-            <label htmlFor="city">Location:</label>
-            <input
-              type="text"
-              name="city"
-              id="city"
-              value={location}
-              onChange={handleLocationInput}
-            />
-            <label htmlFor="search"></label>
-            <button type="button" id="search" onClick={handleManualSearch}>
-              Search
-            </button>
-          </p>
-        </fieldset>
+        <p>
+          <label htmlFor="city">City: </label>
+          <input
+            type="text"
+            name="city"
+            id="city"
+            value={location}
+            onChange={handleLocationInput}
+          />
+          <label htmlFor="search"></label>
+          <button type="button" id="search" onClick={handleManualSearch}>
+            Search
+          </button>
+        </p>
         <button type="button" onClick={findLocation}>
-          Use My Location
+          Detect My Location
         </button>
       </form>
       <Card latitude={latitude} longitude={longitude} city={location} />
