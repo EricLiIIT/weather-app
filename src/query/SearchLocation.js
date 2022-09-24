@@ -20,7 +20,7 @@ export default function SearchLocation() {
   function loadLocation(location) {
     console.log("searchLocation.js:", location);
     return fetch(
-      `${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${location}`,
+      `${GEO_API_URL}/cities?&namePrefix=${location}`,
       geoDbCitiesApiOptions
     )
       .then((response) => response.json())
@@ -66,7 +66,7 @@ export default function SearchLocation() {
 
   return (
     <div>
-      <form action="">
+      <form onSubmit={handleManualSearch}>
         <fieldset>
           <legend>Enter city or automatically detect location:</legend>
           <p>
