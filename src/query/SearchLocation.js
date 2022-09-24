@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { getCityCoordinates } from "../services/GetCity";
+import "./SearchLocation.css";
 import Card from "../weather/Card.js";
 
 export default function SearchLocation() {
