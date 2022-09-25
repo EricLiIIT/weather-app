@@ -1,4 +1,4 @@
-import SearchLocation from "./query/SearchLocation";
+import Search from "./search/Search";
 import { useState } from "react";
 import { getCityCoordinates } from "./services/GetCity";
 import Card from "./weather/Card.js";
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div>
-      <SearchLocation onManualSearch={manualSearch} onLocate={locate} />
+      <Search onManualSearch={manualSearch} onLocate={locate} />
       <Card latitude={latitude} longitude={longitude} city={location} />
     </div>
   );

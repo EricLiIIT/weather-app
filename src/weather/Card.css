@@ -1,3 +1,31 @@
-div {
+img {
+  height: 60px;
+  width: 60px;
+}
+
+.weather-card {
+  border-style: solid;
+  border-width: 2px;
+  /* background-color: Grey; */
   text-align: center;
+  margin: 10px auto 10px auto;
+  height: 400px;
+  width: 350px;
+}
+
+.weather-card > span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 10px 10px 30px;
+  text-align: center;
+}
+
+.weather-condition {
+  padding: 10px 30px 10px 10px;
 }

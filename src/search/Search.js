@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import "./SearchLocation.css";
+import "./Search.css";
 
-const SearchLocation = (props) => {
+const Search = (props) => {
   const [location, setLocation] = useState("Chicago");
 
   function search(event) {
@@ -36,4 +36,4 @@ const SearchLocation = (props) => {
   );
 };
 
-export default SearchLocation;
+export default Search;
