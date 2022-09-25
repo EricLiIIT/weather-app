@@ -4,13 +4,13 @@ img {
 }
 
 .weather-card {
+  height: 180px;
+  width: 350px;
   border-style: solid;
   border-width: 2px;
   border-radius: 20px;
   /* background-color: Grey; */
   margin: 10px auto 10px auto;
-  height: 400px;
-  width: 350px;
   position: relative;
 }
 
@@ -24,7 +24,11 @@ img {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 10px 10px 10px 30px;
+  padding: 10px 10px 0px 30px;
+}
+
+.city h1 {
+  margin-bottom: 0px;
 }
 
 .weather-condition {
@@ -34,10 +38,16 @@ img {
   align-items: center;
   text-align: center;
   font-size: 0.7rem;
-  padding: 10px 30px 10px 10px;
+  padding: 20px 30px 10px 10px;
 }
 
 .weather-data {
   font-size: 0.7rem;
   padding-left: 30px;
+}
+
+.weather-data p {
+  margin: 1px auto 1px 10px;
+  /* margin-top: 1px;
+  margin-bottom: 1px; */
 }
