@@ -3,19 +3,27 @@ import { getCityCoordinates } from "../services/GetCity";
 import "./SearchLocation.css";
 import Card from "../weather/Card.js";
 
-export default function SearchLocation() {
+const SearchLocation = () => {
   const [location, setLocation] = useState("Chicago");
   const [didSearch, setDidSearch] = useState(false);
   const [latitude, setLatitude] = useState("41.875");
   const [longitude, setLongitude] = useState("-87.625");
 
   function handleLocationInput(event) {
+    setDidSearch(false);
     setLocation(event.target.value);
   }
 
   function handleManualSearch(event) {
-    event.preventDefault();
     setDidSearch(true);
+    event.preventDefault();
+    // get coordinates of entered city:
+    getCityCoordinates(location)
+      .then((response) => {
+        setLatitude(response.data[0].latitude);
+        setLongitude(response.data[0].longitude);
+      })
+      .catch((error) => console.log(error));
   }
 
   function findLocation() {
@@ -36,20 +44,8 @@ export default function SearchLocation() {
     alert("Unable to retrieve location");
   }
 
-  useEffect(() => {
-    if (didSearch) {
-      getCityCoordinates(location)
-        .then((response) => {
-          setLatitude(response.data[0].latitude);
-          setLongitude(response.data[0].longitude);
-        })
-        .catch((error) => console.log(error));
-      setDidSearch(false);
-    }
-  }, [location, didSearch]);
-
   return (
-    <div class="form-container">
+    <div className="form-container">
       <form onSubmit={handleManualSearch}>
         <p>
           <label htmlFor="city">City: </label>
@@ -69,7 +65,14 @@ export default function SearchLocation() {
           Detect My Location
         </button>
       </form>
-      <Card latitude={latitude} longitude={longitude} city={location} />
+      <Card
+        latitude={latitude}
+        longitude={longitude}
+        city={didSearch ? location : null}
+        didSearch={didSearch}
+      />
     </div>
   );
-}
+};
+
+export default SearchLocation;

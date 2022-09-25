@@ -14,7 +14,7 @@ const Card = (props) => {
       (response) => {
         console.log("Card.js response", response);
         setCurrentTemp(response.current_weather.temperature);
-        // setCity(props.city);
+        setCity(props.city);
         setWindSpeed(response.current_weather.windspeed);
         setWindDirection(response.current_weather.winddirection);
       },
@@ -24,8 +24,7 @@ const Card = (props) => {
         console.log(error);
       }
     );
-    setCity(props.city);
-  }, [props.latitude, props.longitude, props.city]);
+  }, [props.didSearch, props.latitude, props.longitude, props.city]);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -33,7 +32,7 @@ const Card = (props) => {
     return (
       <div>
         <p>City: {city}</p>
-        <p>Current Temp:{currentTemp}</p>
+        <p>Current Temp: {currentTemp}</p>
         <p>Wind Speed: {windSpeed} mph</p>
         <p>Wind Direction: {windDirection}</p>
       </div>
