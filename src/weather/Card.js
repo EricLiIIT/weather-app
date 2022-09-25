@@ -62,7 +62,9 @@ const Card = (props) => {
     return (
       <div className="weather-card">
         <span>
-          <div className="city">{city}</div>
+          <div className="city">
+            <h1>{city}</h1>
+          </div>
           <div className="weather-condition">
             <img
               src={require(`../weather-icons/${weatherConditionCode[condition][1]}.png`)}
@@ -71,8 +73,10 @@ const Card = (props) => {
             <div>{weatherConditionCode[condition][0]}</div>
           </div>
         </span>
-        <p className="current-temp">Current Temp: {currentTemp}</p>
-        <p className="wind-speed">Wind Speed: {windSpeed} mph</p>
+        <div className="weather-data">
+          <p className="current-temp">Temp: {currentTemp}</p>
+          <p className="wind-speed">Wind Speed: {windSpeed} mph</p>
+        </div>
       </div>
     );
   }

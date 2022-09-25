@@ -27,10 +27,10 @@ const Search = (props) => {
           <button type="button" id="search" onClick={search}>
             Search
           </button>
+          <button type="button" onClick={props.onLocate}>
+            Detect My Location
+          </button>
         </p>
-        <button type="button" onClick={props.onLocate}>
-          Detect My Location
-        </button>
       </form>
     </div>
   );

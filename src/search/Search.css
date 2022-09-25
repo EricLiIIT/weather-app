@@ -12,3 +12,7 @@ div form {
   border: none;
   align-items: center;
 }
+
+button {
+  margin-left: 10px;
+}
