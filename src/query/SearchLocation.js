@@ -9,10 +9,7 @@ const SearchLocation = (props) => {
   }
 
   function handleInput(event) {
-    // setLocation(event.target.value);
-    // console.log(event.target.value);
     setLocation(event.target.value);
-    props.onSearchInput(event.target.value);
   }
   return (
     <div className="form-container">

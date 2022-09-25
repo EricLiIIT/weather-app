@@ -9,10 +9,6 @@ function App() {
   const [latitude, setLatitude] = useState("41.875");
   const [longitude, setLongitude] = useState("-87.625");
 
-  function handleLocationInput(city) {
-    console.log(city);
-  }
-
   function manualSearch(event, location) {
     event.preventDefault();
     // get coordinates of entered city:
@@ -45,11 +41,7 @@ function App() {
 
   return (
     <div>
-      <SearchLocation
-        onSearchInput={handleLocationInput}
-        onManualSearch={manualSearch}
-        onLocate={locate}
-      />
+      <SearchLocation onManualSearch={manualSearch} onLocate={locate} />
       <Card latitude={latitude} longitude={longitude} city={location} />
     </div>
   );
