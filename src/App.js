@@ -11,7 +11,6 @@ function App() {
 
   function manualSearch(event, location) {
     event.preventDefault();
-    // get coordinates of entered city:
     getCityCoordinates(location)
       .then((response) => {
         setLatitude(response.data[0].latitude);
@@ -26,8 +25,10 @@ function App() {
   }
 
   function success(position) {
-    setLatitude(position.coords.latitude);
-    setLongitude(position.coords.longitude);
+    let pos = position.coords;
+    setLatitude(pos.latitude);
+    setLongitude(pos.longitude);
+    setLocation(`${pos.latitude}, ${pos.longitude}`);
     console.log("successfully got location");
   }
 

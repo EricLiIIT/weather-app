@@ -28,7 +28,7 @@ const SearchLocation = (props) => {
             Search
           </button>
         </p>
-        <button type="button" onClick={props.locate}>
+        <button type="button" onClick={props.onLocate}>
           Detect My Location
         </button>
       </form>
