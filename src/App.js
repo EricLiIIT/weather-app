@@ -17,7 +17,10 @@ function App() {
         setLongitude(response.data[0].longitude);
         setLocation(location);
       })
-      .catch((error) => console.log("error in App.js", error));
+      .catch((error) => {
+        console.log("error in App.js", error);
+        alert("Invalid City");
+      });
   }
 
   function locate() {
@@ -33,11 +36,14 @@ function App() {
   }
 
   function locateError(error) {
+    if (!error) {
+      alert("Unable to retrieve location");
+    }
     alert(`Unable to retrieve your location: ${error}`);
   }
 
   if (!navigator.geolocation) {
-    alert("Unable to retrieve location");
+    locateError();
   }
 
   return (
