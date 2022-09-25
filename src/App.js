@@ -15,9 +15,9 @@ function App() {
       .then((response) => {
         setLatitude(response.data[0].latitude);
         setLongitude(response.data[0].longitude);
+        setLocation(location);
       })
-      .catch((error) => console.log(error));
-    setLocation(location);
+      .catch((error) => console.log("error in App.js", error));
   }
 
   function locate() {
