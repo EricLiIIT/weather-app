@@ -1,5 +1,6 @@
 import { React, useState } from "react";
-// import { HiMagnifyingGlass } from "react-icons/hi2";
+import { BsSearch } from "react-icons/bs";
+import { GrMapLocation } from "react-icons/gr";
 import "./Search.css";
 
 const Search = (props) => {
@@ -24,13 +25,22 @@ const Search = (props) => {
             value={location}
             onChange={handleInput}
           />
-          <label htmlFor="search"></label>
-          <button type="button" id="search" onClick={search} className="btn">
-            Search
-          </button>
-          <button type="button" onClick={props.onLocate} className="bt">
-            Detect My Location
-          </button>
+          <label htmlFor="search" />
+          <BsSearch
+            id="search"
+            className="btn"
+            onClick={search}
+            tabIndex="0"
+            title="Search"
+          />
+          <label htmlFor="locate" />
+          <GrMapLocation
+            id="locate"
+            className="btn"
+            onClick={props.onLocate}
+            tabIndex="0"
+            title="Detect location"
+          />
         </p>
       </form>
     </div>
