@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+// import { HiMagnifyingGlass } from "react-icons/hi2";
 import "./Search.css";
 
 const Search = (props) => {
@@ -24,10 +25,10 @@ const Search = (props) => {
             onChange={handleInput}
           />
           <label htmlFor="search"></label>
-          <button type="button" id="search" onClick={search}>
+          <button type="button" id="search" onClick={search} className="btn">
             Search
           </button>
-          <button type="button" onClick={props.onLocate}>
+          <button type="button" onClick={props.onLocate} className="bt">
             Detect My Location
           </button>
         </p>

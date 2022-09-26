@@ -41,7 +41,6 @@ const Card = (props) => {
   useEffect(() => {
     getWeatherData(Number(props.latitude), Number(props.longitude)).then(
       (response) => {
-        console.log(response);
         let current = response.current_weather;
         setCity(props.city);
         setCurrentTemp(current.temperature);
@@ -56,7 +55,7 @@ const Card = (props) => {
     );
   }, [props.didSearch, props.latitude, props.longitude, props.city]);
 
-  if (error) {
+  if (error || !weatherConditionCode[condition]) {
     return <div>Error: {error}</div>;
   } else {
     return (
