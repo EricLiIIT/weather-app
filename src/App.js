@@ -1,13 +1,41 @@
 import Search from "./search/Search";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getCityCoordinates } from "./services/GetCity";
+import { getWeatherData } from "./services/GetWeatherData";
 import Card from "./weather/Card.js";
+import Forecast from "./forecast/Forecast";
 import "./App.css";
 
 function App() {
   const [location, setLocation] = useState("Chicago");
   const [latitude, setLatitude] = useState("41.875");
   const [longitude, setLongitude] = useState("-87.625");
+  const [error, setError] = useState(null);
+
+  // weather data
+  const [currentTemp, setCurrentTemp] = useState();
+  const [currentWindSpeed, setCurrentWindSpeed] = useState();
+  const [condition, setCondition] = useState();
+  const [forecastMaxTemp, setForecastMaxTemp] = useState();
+
+  useEffect(() => {
+    getWeatherData(latitude, longitude).then(
+      (response) => {
+        console.log("weather res:", response);
+        let current = response.current_weather;
+        let forecast = response.daily;
+        setLocation(location);
+        setCurrentTemp(current.temperature);
+        setCurrentWindSpeed(current.windspeed);
+        setCondition(current.weathercode);
+        setForecastMaxTemp(forecast.temperature_2m_max);
+        console.log(forecast.temperature_2m_max);
+      },
+      (error) => {
+        setError(error);
+      }
+    );
+  }, [latitude, longitude, location]);
 
   function manualSearch(event, location) {
     event.preventDefault();
@@ -49,7 +77,22 @@ function App() {
   return (
     <div>
       <Search onManualSearch={manualSearch} onLocate={locate} />
-      <Card latitude={latitude} longitude={longitude} city={location} />
+      <Card
+        latitude={latitude}
+        longitude={longitude}
+        city={location}
+        currentTemp={currentTemp}
+        currentWindSpeed={currentWindSpeed}
+        weatherCode={condition}
+        error={error}
+      />
+      <Forecast
+        latitude={latitude}
+        longitude={longitude}
+        city={location}
+        weatherCode={condition}
+        forecastMaxTemp={forecastMaxTemp}
+      />
     </div>
   );
 }

@@ -9,7 +9,6 @@ img {
   border-style: solid;
   border-width: 2px;
   border-radius: 20px;
-  /* background-color: Grey; */
   margin: 10px auto 10px auto;
   position: relative;
 }
@@ -49,6 +48,4 @@ img {
 
 .weather-data p {
   margin: 1px auto 1px 1px;
-  /* margin-top: 1px;
-  margin-bottom: 1px; */
 }

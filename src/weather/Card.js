@@ -1,14 +1,6 @@
-import { useState, useEffect } from "react";
-import { getWeatherData } from "../services/GetWeatherData";
 import "./Card.css";
 
 const Card = (props) => {
-  const [error, setError] = useState(null);
-  const [currentTemp, setCurrentTemp] = useState();
-  const [city, setCity] = useState("Chicago");
-  const [windSpeed, setWindSpeed] = useState();
-  const [condition, setCondition] = useState();
-
   const weatherConditionCode = {
     0: ["Clear sky", "clear"],
     1: ["Mainly clear", "clear"],
@@ -38,48 +30,58 @@ const Card = (props) => {
     99: ["Thunderstorm with heavy hail", "thunderstorm"],
   };
 
-  useEffect(() => {
-    getWeatherData(Number(props.latitude), Number(props.longitude)).then(
-      (response) => {
-        let current = response.current_weather;
-        setCity(props.city);
-        setCurrentTemp(current.temperature);
-        setWindSpeed(current.windspeed);
-        setCondition(current.weathercode);
-      },
-      // prevent rendering errors
-      (error) => {
-        setError(error);
-        console.log(error);
-      }
-    );
-  }, [props.didSearch, props.latitude, props.longitude, props.city]);
-
-  if (error || !weatherConditionCode[condition]) {
-    return <div>Error: {error}</div>;
-  } else {
+  if (props.error || !weatherConditionCode[props.weatherCode]) {
+    return <div>Error: {props.error}</div>;
+  } else if (!props.forecastMaxTemp) {
     return (
       <div className="weather-card">
         <span>
           <div>
             <div className="city">
-              <h1>{city}</h1>
+              <h1>{props.city}</h1>
             </div>
             <div className="weather-data">
-              <p className="current-temp">Temp: {currentTemp}</p>
-              <p className="wind-speed">Wind Speed: {windSpeed} mph</p>
+              <p className="current-temp">Temp: {props.currentTemp}</p>
+              <p className="wind-speed">Wind Speed: {props.windSpeed} mph</p>
             </div>
           </div>
           <div className="weather-condition">
             <img
-              src={require(`../weather-icons/${weatherConditionCode[condition][1]}.png`)}
-              alt={weatherConditionCode[condition][1]}
+              src={require(`../weather-icons/${
+                weatherConditionCode[props.weatherCode][1]
+              }.png`)}
+              alt={weatherConditionCode[props.weatherCode][1]}
             />
-            <div>{weatherConditionCode[condition][0]}</div>
+            <div>{weatherConditionCode[props.weatherCode][0]}</div>
           </div>
         </span>
       </div>
     );
+  } else if (props.forecastMaxTemp) {
+    <div className="weather-card">
+      <span>
+        <div>
+          <div className="city">
+            <h1>{props.city}</h1>
+          </div>
+          <div className="weather-data">
+            <p className="current-temp">Temp: {props.currentTemp}</p>
+            <p className="wind-speed">Wind Speed: {props.windSpeed} mph</p>
+          </div>
+        </div>
+        <div className="weather-condition">
+          <img
+            src={require(`../weather-icons/${
+              weatherConditionCode[props.weatherCode][1]
+            }.png`)}
+            alt={weatherConditionCode[props.weatherCode][1]}
+          />
+          <div>{weatherConditionCode[props.weatherCode][0]}</div>
+        </div>
+      </span>
+      <p>Temps:</p>
+      <p>{props.forecastMaxTemp}</p>
+    </div>;
   }
 };
 
