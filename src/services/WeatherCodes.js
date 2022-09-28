@@ -3,7 +3,7 @@ export const weatherConditionCode = {
   1: ["Mainly clear", "clear"],
   2: ["Partly cloudy", "cloud"],
   3: ["Overcast", "cloud"],
-  45: ["Fog", "cloud2"],
+  45: ["Fog", "cloud-2"],
   48: ["Depositing rime fog", "cloud-2"],
   51: ["Light drizzle", "rain"],
   53: ["Moderate drizzle", "rain"],

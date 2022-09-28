@@ -46,7 +46,6 @@ function App() {
         setSunrise(forecast.sunrise);
         setSunset(forecast.sunset);
         setPrecipitation(forecast.precipitation_sum);
-        // console.log(forecast.temperature_2m_max);
       },
       (error) => {
         setError(error);

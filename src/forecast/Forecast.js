@@ -17,3 +17,7 @@ const Forecast = (props) => {
 };
 
 export default Forecast;
+
+export const Forecast2 = () => {
+  return "Hello";
+};
