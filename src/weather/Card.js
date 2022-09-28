@@ -2,6 +2,32 @@ import "./Card.css";
 import { weatherConditionCode } from "../services/WeatherCodes";
 
 const Card = (props) => {
+  function convertToDay(date) {
+    const day = new Date(date).getDay();
+    const daysOfTheWeek = {
+      0: "Sun",
+      1: "Mon",
+      2: "Tues",
+      3: "Wed",
+      4: "Thurs",
+      5: "Fri",
+      6: "Sat",
+    };
+    return daysOfTheWeek[day];
+  }
+
+  function convertDate(date) {
+    const date1 = new Date(date);
+    if (date1.getHours() > 12) {
+      return `${date1.getHours() - 12}:${date1.getMinutes()}`;
+    } else {
+      return `${date1.getHours()}:${date1.getMinutes()}`;
+    }
+  }
+
+  convertDate(props.sunrise);
+  convertDate(props.sunset);
+
   if (
     props.error ||
     (!weatherConditionCode[props.weatherCode] && props.weather === "current")
@@ -9,9 +35,11 @@ const Card = (props) => {
     console.log("error");
     return <div>Error: {props.error}</div>;
   } else {
-    // console.log(props.weather);
     return (
-      <div className="weather-card">
+      <div
+        className="weather-card"
+        id={props.weather === "current" ? "current" : "forecast"}
+      >
         <span>
           <div>
             {props.weather === "current" ? (
@@ -19,13 +47,18 @@ const Card = (props) => {
                 <h1>{props.city}</h1>
               </div>
             ) : (
-              <div className="date">{props.day}</div>
+              <div className="date">
+                <h1>{convertToDay(props.day)}</h1>
+              </div>
             )}
 
             <div className="weather-data">
               {props.weather === "current" ? (
                 <div className="current-temp">
                   <p>Temp: {props.currentTemp}</p>
+                  <p>High: {props.maxTemp[0]}</p>
+                  <p>Low: {props.minTemp[0]}</p>
+                  <p>Precipitation: {props.precipitation[0]} in</p>
                   <p className="wind-speed">
                     Wind Speed: {props.currentWindSpeed} mph
                   </p>
@@ -34,9 +67,9 @@ const Card = (props) => {
                 <div>
                   <p>High: {props.maxTemp}</p>
                   <p>Low: {props.minTemp}</p>
-                  <p>Sunrise: {props.sunrise}</p>
-                  <p>Sunset: {props.sunset}</p>
-                  <p>Precipitation: {props.precipitation} in</p>
+                  <p>Precip: {props.precipitation} in</p>
+                  <p>Sunrise: {convertDate(props.sunrise)} AM</p>
+                  <p>Sunset: {convertDate(props.sunset)} PM</p>
                 </div>
               )}
             </div>

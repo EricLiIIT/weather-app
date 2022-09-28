@@ -99,10 +99,13 @@ function App() {
         city={location}
         weatherCode={currentCondition}
         currentTemp={currentTemp}
+        maxTemp={maxTemp}
+        minTemp={minTemp}
+        precipitation={precipitation}
         currentWindSpeed={currentWindSpeed}
         error={error}
       />
-      <h1>Forecast component</h1>
+      <h1>7 Day Forecast</h1>
       <div className="forecast">
         <Forecast
           weather={forecast}
@@ -117,6 +120,24 @@ function App() {
           error={error}
         />
       </div>
+      <footer>
+        <a
+          href="https://www.flaticon.com/packs/weather-535?word=weather"
+          title="weather icons"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Weather icons by kimnizuma.
+        </a>
+        <a
+          href="https://www.flaticon.com/free-icon/drop_427112?term=rain%20drop&page=1&position=3&page=1&position=3&related_id=427112&origin=search"
+          title="drop icon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Drop icon by Vectors Market
+        </a>
+      </footer>
     </div>
   );
 }

@@ -18,7 +18,8 @@ img {
   justify-content: space-between;
 }
 
-.city {
+.city,
+.date {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,8 +27,10 @@ img {
   padding: 10px 10px 0px 30px;
 }
 
-.city h1 {
+.city h1,
+.date h1 {
   text-align: left;
+  margin-top: 0px;
   margin-bottom: 0px;
 }
 
@@ -48,4 +51,21 @@ img {
 
 .weather-data p {
   margin: 1px auto 1px 1px;
+}
+
+#forecast {
+  padding-bottom: 10px;
+  height: fit-content;
+  width: fit-content;
+  /* min-width: max-content; */
+  max-width: 225px;
+}
+
+#forecast span {
+  min-width: 200px;
+}
+
+#forecast img {
+  height: 40px;
+  width: 40px;
 }
