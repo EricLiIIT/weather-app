@@ -97,23 +97,26 @@ function App() {
       <Card
         weather={current}
         city={location}
+        weatherCode={currentCondition}
         currentTemp={currentTemp}
         currentWindSpeed={currentWindSpeed}
-        weatherCode={currentCondition}
         error={error}
       />
-      <Forecast
-        weather={forecast}
-        city={location}
-        weatherCode={weatherCode}
-        maxTemp={maxTemp}
-        minTemp={minTemp}
-        day={day}
-        sunrise={sunrise}
-        sunset={sunset}
-        precipitation={precipitation}
-        error={error}
-      />
+      <h1>Forecast component</h1>
+      <div className="forecast">
+        <Forecast
+          weather={forecast}
+          city={location}
+          weatherCode={weatherCode}
+          maxTemp={maxTemp}
+          minTemp={minTemp}
+          day={day}
+          sunrise={sunrise}
+          sunset={sunset}
+          precipitation={precipitation}
+          error={error}
+        />
+      </div>
     </div>
   );
 }

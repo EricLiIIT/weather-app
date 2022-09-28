@@ -1,19 +1,19 @@
 import Card from "../weather/Card";
-import { useState } from "react";
 const Forecast = (props) => {
-  return (
-    <div>
-      <h1>Forecast component</h1>
+  return props.day.map((i, index) => (
+    <div key={i}>
       <Card
+        day={i}
         weather={props.weather}
-        latitude={props.latitude}
-        longitude={props.longitude}
-        city={props.city}
-        weatherCode={props.weatherCode}
-        maxTemp={props.maxTemp}
+        maxTemp={props.maxTemp[index]}
+        minTemp={props.minTemp[index]}
+        sunrise={props.sunrise[index]}
+        sunset={props.sunset[index]}
+        precipitation={props.precipitation[index]}
+        weatherCode={props.weatherCode[index]}
       />
     </div>
-  );
+  ));
 };
 
 export default Forecast;
