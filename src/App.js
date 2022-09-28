@@ -13,10 +13,20 @@ function App() {
   const [error, setError] = useState(null);
 
   // weather data
+  const current = "current";
   const [currentTemp, setCurrentTemp] = useState();
   const [currentWindSpeed, setCurrentWindSpeed] = useState();
-  const [condition, setCondition] = useState();
-  const [forecastMaxTemp, setForecastMaxTemp] = useState();
+  const [currentCondition, setCurrentCondition] = useState();
+
+  // forecast weather data
+  const forecast = "forecast";
+  const [maxTemp, setMaxTemp] = useState([]);
+  const [minTemp, setMinTemp] = useState([]);
+  const [weatherCode, setWeatherCode] = useState([]);
+  const [day, setDay] = useState([]);
+  const [sunrise, setSunrise] = useState([]);
+  const [sunset, setSunset] = useState([]);
+  const [precipitation, setPrecipitation] = useState([]);
 
   useEffect(() => {
     getWeatherData(latitude, longitude).then(
@@ -27,9 +37,16 @@ function App() {
         setLocation(location);
         setCurrentTemp(current.temperature);
         setCurrentWindSpeed(current.windspeed);
-        setCondition(current.weathercode);
-        setForecastMaxTemp(forecast.temperature_2m_max);
-        console.log(forecast.temperature_2m_max);
+        setCurrentCondition(current.weathercode);
+        // Forecast Conditions:
+        setMaxTemp(forecast.temperature_2m_max);
+        setMinTemp(forecast.temperature_2m_min);
+        setWeatherCode(forecast.weathercode);
+        setDay(forecast.time); // returns dates for next 7 days
+        setSunrise(forecast.sunrise);
+        setSunset(forecast.sunset);
+        setPrecipitation(forecast.precipitation_sum);
+        // console.log(forecast.temperature_2m_max);
       },
       (error) => {
         setError(error);
@@ -78,20 +95,24 @@ function App() {
     <div>
       <Search onManualSearch={manualSearch} onLocate={locate} />
       <Card
-        latitude={latitude}
-        longitude={longitude}
+        weather={current}
         city={location}
         currentTemp={currentTemp}
         currentWindSpeed={currentWindSpeed}
-        weatherCode={condition}
+        weatherCode={currentCondition}
         error={error}
       />
       <Forecast
-        latitude={latitude}
-        longitude={longitude}
+        weather={forecast}
         city={location}
-        weatherCode={condition}
-        forecastMaxTemp={forecastMaxTemp}
+        weatherCode={weatherCode}
+        maxTemp={maxTemp}
+        minTemp={minTemp}
+        day={day}
+        sunrise={sunrise}
+        sunset={sunset}
+        precipitation={precipitation}
+        error={error}
       />
     </div>
   );

@@ -1,38 +1,17 @@
 import "./Card.css";
+import { weatherConditionCode } from "../services/WeatherCodes";
 
 const Card = (props) => {
-  const weatherConditionCode = {
-    0: ["Clear sky", "clear"],
-    1: ["Mainly clear", "clear"],
-    2: ["Partly cloudy", "cloud"],
-    3: ["Overcast", "cloud"],
-    45: ["Fog", "cloud2"],
-    48: ["Depositing rime fog", "cloud-2"],
-    51: ["Light drizzle", "rain"],
-    53: ["Moderate drizzle", "rain"],
-    55: ["Intense drizzle", "rain"],
-    61: ["Slight rain", "rain"],
-    63: ["Moderate rain", "rain"],
-    65: ["Heavy rain", "heavy-rain"],
-    66: ["Light freezing rain", "rain"],
-    67: ["Heavy freezing rain", "heavy-rain"],
-    71: ["Slight snowfall", "snow"],
-    73: ["Moderate snowfall", "snow"],
-    75: ["Intense snowfall", "snow"],
-    77: ["Snow grains", "snow"],
-    80: ["Slight rain shower", "heavy-rain"],
-    81: ["Moderate rain shower", "heavy-rain"],
-    82: ["Violent rain shower", "heavy-rain"],
-    85: ["Slight snow shower", "snow"],
-    86: ["Heavy snow shower", "snow"],
-    95: ["Thunderstorm", "thunderstorm"],
-    96: ["Thunderstorm with slight hail", "thunderstorm"],
-    99: ["Thunderstorm with heavy hail", "thunderstorm"],
-  };
-
-  if (props.error || !weatherConditionCode[props.weatherCode]) {
+  if (
+    props.error ||
+    (!weatherConditionCode[props.weatherCode] && props.weather === "current")
+  ) {
+    console.log("error");
     return <div>Error: {props.error}</div>;
-  } else if (!props.forecastMaxTemp) {
+  } else if (props.weather === "current") {
+    console.log("current weather");
+    console.log(props.weather);
+    // render current
     return (
       <div className="weather-card">
         <span>
@@ -57,32 +36,38 @@ const Card = (props) => {
         </span>
       </div>
     );
-  } else if (props.forecastMaxTemp) {
-    <div className="weather-card">
-      <span>
-        <div>
-          <div className="city">
-            <h1>{props.city}</h1>
-          </div>
-          <div className="weather-data">
-            <p className="current-temp">Temp: {props.currentTemp}</p>
-            <p className="wind-speed">Wind Speed: {props.windSpeed} mph</p>
-          </div>
-        </div>
-        <div className="weather-condition">
-          <img
-            src={require(`../weather-icons/${
-              weatherConditionCode[props.weatherCode][1]
-            }.png`)}
-            alt={weatherConditionCode[props.weatherCode][1]}
-          />
-          <div>{weatherConditionCode[props.weatherCode][0]}</div>
-        </div>
-      </span>
-      <p>Temps:</p>
-      <p>{props.forecastMaxTemp}</p>
-    </div>;
   }
+  // else if (props.weather === "forecast") {
+  //   console.log("render forecast");
+  //   console.log(props.weather);
+  //   // render forecast
+  //   return (
+  //     <div className="weather-card">
+  //       <span>
+  //         <div>
+  //           <div className="city">
+  //             <h1>{props.city}</h1>
+  //           </div>
+  //           <div className="weather-data">
+  //             <p className="current-temp">Temp: {props.currentTemp}</p>
+  //             <p className="wind-speed">Wind Speed: {props.windSpeed} mph</p>
+  //           </div>
+  //         </div>
+  //         <div className="weather-condition">
+  //           <img
+  //             src={require(`../weather-icons/${
+  //               weatherConditionCode[props.weatherCode][1]
+  //             }.png`)}
+  //             alt={weatherConditionCode[props.weatherCode][1]}
+  //           />
+  //           <div>{weatherConditionCode[props.weatherCode][0]}</div>
+  //         </div>
+  //       </span>
+  //       <p>Temps:</p>
+  //       <p>{props.maxTemp}</p>
+  //     </div>
+  //   );
+  // }
 };
 
 export default Card;
