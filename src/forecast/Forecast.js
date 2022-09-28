@@ -1,5 +1,6 @@
 import Card from "../weather/Card";
 const Forecast = (props) => {
+  console.log(props.day.forEach((day) => console.log(day)));
   return props.day.map((i, index) => (
     <div key={i}>
       <Card

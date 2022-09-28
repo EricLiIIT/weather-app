@@ -105,7 +105,7 @@ function App() {
         currentWindSpeed={currentWindSpeed}
         error={error}
       />
-      <h1>7 Day Forecast</h1>
+      {/* <h1>7 Day Forecast</h1>
       <div className="forecast">
         <Forecast
           weather={forecast}
@@ -119,7 +119,7 @@ function App() {
           precipitation={precipitation}
           error={error}
         />
-      </div>
+      </div> */}
       <footer>
         <a
           href="https://www.flaticon.com/packs/weather-535?word=weather"

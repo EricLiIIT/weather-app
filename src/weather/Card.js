@@ -5,13 +5,13 @@ const Card = (props) => {
   function convertToDay(date) {
     const day = new Date(date).getDay();
     const daysOfTheWeek = {
-      0: "Sun",
-      1: "Mon",
-      2: "Tues",
-      3: "Wed",
-      4: "Thurs",
-      5: "Fri",
-      6: "Sat",
+      0: "Mon",
+      1: "Tues",
+      2: "Wed",
+      3: "Thur",
+      4: "Fri",
+      5: "Sat",
+      6: "Sun",
     };
     return daysOfTheWeek[day];
   }
