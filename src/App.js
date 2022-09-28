@@ -57,8 +57,9 @@ function App() {
     event.preventDefault();
     getCityCoordinates(location)
       .then((response) => {
-        setLatitude(response.data[0].latitude);
-        setLongitude(response.data[0].longitude);
+        let city = response.addresses[0];
+        setLatitude(city.latitude);
+        setLongitude(city.longitude);
         setLocation(location);
       })
       .catch((error) => {
