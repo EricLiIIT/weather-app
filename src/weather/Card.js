@@ -25,9 +25,6 @@ const Card = (props) => {
     }
   }
 
-  convertDate(props.sunrise);
-  convertDate(props.sunset);
-
   if (
     props.error ||
     (!weatherConditionCode[props.weatherCode] && props.weather === "current")

@@ -94,19 +94,7 @@ function App() {
   return (
     <div>
       <Search onManualSearch={manualSearch} onLocate={locate} />
-      <Card
-        weather={current}
-        city={location}
-        weatherCode={currentCondition}
-        currentTemp={currentTemp}
-        maxTemp={maxTemp}
-        minTemp={minTemp}
-        precipitation={precipitation}
-        currentWindSpeed={currentWindSpeed}
-        error={error}
-      />
-      {/* <h1>7 Day Forecast</h1>
-      <div className="forecast">
+      <main className="weather">
         <Forecast
           weather={forecast}
           city={location}
@@ -119,7 +107,20 @@ function App() {
           precipitation={precipitation}
           error={error}
         />
-      </div> */}
+
+        <Card
+          weather={current}
+          city={location}
+          weatherCode={currentCondition}
+          currentTemp={currentTemp}
+          maxTemp={maxTemp}
+          minTemp={minTemp}
+          precipitation={precipitation}
+          currentWindSpeed={currentWindSpeed}
+          error={error}
+        />
+      </main>
+
       <footer>
         <a
           href="https://www.flaticon.com/packs/weather-535?word=weather"

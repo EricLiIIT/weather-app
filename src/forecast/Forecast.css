@@ -1,1 +1,9 @@
-
+.forecast {
+  height: 400px;
+  width: 400px;
+  border-style: solid;
+  border-radius: 20px;
+  border-width: 2px;
+  margin-right: 50px;
+  margin-left: auto;
+}

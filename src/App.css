@@ -3,10 +3,10 @@ body > * {
   margin-bottom: 10px;
 }
 
-.forecast {
+.weather {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  margin-top: 50px;
 }
 
 footer {
