@@ -11,3 +11,10 @@ export async function getCityCoordinates(city) {
   const data = response.json();
   return data;
 }
+
+export async function getCityName(latitude, longitude) {
+  const URL = `https://api.radar.io/v1/geocode/reverse?coordinates=${latitude.toString()}, ${longitude.toString()}`;
+  const response = await fetch(URL, OPTIONS);
+  const data = response.json();
+  return data;
+}

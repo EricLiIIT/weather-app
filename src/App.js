@@ -2,6 +2,7 @@ import Search from "./search/Search";
 import { useEffect, useState } from "react";
 import { getCityCoordinates } from "./services/GetCity";
 import { getWeatherData } from "./services/GetWeatherData";
+import { getCityName } from "./services/GetCity";
 import Card from "./weather/Card.js";
 import Forecast from "./forecast/Forecast";
 import "./App.css";
@@ -64,7 +65,7 @@ function App() {
         setLocation(location);
       })
       .catch((error) => {
-        console.log("error in App.js", error);
+        console.log(`Error in App.js, ${error}`);
         alert("Invalid City");
       });
   }
@@ -77,7 +78,13 @@ function App() {
     let pos = position.coords;
     setLatitude(pos.latitude);
     setLongitude(pos.longitude);
-    setLocation(`${pos.latitude}, ${pos.longitude}`);
+    getCityName(latitude, longitude)
+      .then((response) => {
+        setLocation(response.addresses[0].city);
+      })
+      .catch((error) => {
+        console.log(`Error in App.js: ${error}`);
+      });
     console.log("successfully got location");
   }
 
