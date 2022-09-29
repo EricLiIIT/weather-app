@@ -9,3 +9,7 @@ div form {
   margin-left: 10px;
   vertical-align: middle;
 }
+
+.btn:hover {
+  cursor: pointer;
+}
