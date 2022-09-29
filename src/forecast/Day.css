@@ -1,0 +1,30 @@
+.day-of-the-week {
+  display: flex;
+  align-items: center;
+}
+
+.day-of-the-week > .day {
+  margin-left: 5px;
+  min-width: 40px;
+}
+
+.temperature-data {
+  display: flex;
+  align-items: center;
+}
+
+.temperature-data > .min-temp {
+  font-size: 0.8em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 70px;
+  margin-left: 30px;
+}
+
+.temperature-data > .max-temp {
+  font-size: 0.8em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  min-width: 70px;
+  margin-left: 30px;
+}

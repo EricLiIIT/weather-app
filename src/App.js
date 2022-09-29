@@ -20,8 +20,9 @@ function App() {
 
   // forecast weather data
   const forecast = "forecast";
-  const [maxTemp, setMaxTemp] = useState([]);
-  const [minTemp, setMinTemp] = useState([]);
+  const [selectedDay, setSelectedDay] = useState();
+  const [maxTemp, setMaxTemp] = useState([0]);
+  const [minTemp, setMinTemp] = useState([0]);
   const [weatherCode, setWeatherCode] = useState([]);
   const [day, setDay] = useState([]);
   const [sunrise, setSunrise] = useState([]);
@@ -116,6 +117,8 @@ function App() {
           maxTemp={maxTemp}
           minTemp={minTemp}
           precipitation={precipitation}
+          sunrise={sunrise}
+          sunset={sunset}
           currentWindSpeed={currentWindSpeed}
           error={error}
         />

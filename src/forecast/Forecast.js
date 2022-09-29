@@ -2,10 +2,9 @@ import Card from "../weather/Card";
 import { Day } from "./Day";
 import "./Forecast.css";
 const Forecast = (props) => {
-  // console.log(props.day.forEach((day) => console.log(day)));
   return (
     <div className="forecast">
-      <Day day={props.day} />
+      <Day day={props.day} maxTemp={props.maxTemp} minTemp={props.minTemp} />
       {/* <Card
         day={i}
         weather={props.weather}
