@@ -41,6 +41,7 @@ const Card = (props) => {
           <div>
             <div className="weather-condition">
               <p className="current-temp">{props.currentTemp}&deg;</p>
+              <p id="divider"></p>
               <div className="condition">
                 <img
                   src={require(`../weather-icons/${
@@ -48,7 +49,9 @@ const Card = (props) => {
                   }.png`)}
                   alt={weatherConditionCode[props.weatherCode][1]}
                 />
-                <div>{weatherConditionCode[props.weatherCode][0]}</div>
+                <div className="condition-name">
+                  {weatherConditionCode[props.weatherCode][0]}
+                </div>
               </div>
             </div>
           </div>
@@ -57,7 +60,7 @@ const Card = (props) => {
           <p>Hi: {props.maxTemp[0]}&deg;</p>
           <p>Lo: {props.minTemp[0]}&deg;</p>
           <p>Precip: {props.precipitation[0]} in</p>
-          <p>Wind Speed:{props.currentWindSpeed} mph</p>
+          <p>Wind Speed: {props.currentWindSpeed} mph</p>
           <p>Sunrise: {convertDate(props.sunrise[0])} AM</p>
           <p>Sunset: {convertDate(props.sunset[0])} PM</p>
         </span>

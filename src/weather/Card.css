@@ -39,6 +39,8 @@ img {
 
 .current-temp {
   margin-top: 25px;
+  margin-bottom: 25px;
+  margin-right: 10px;
   font-weight: bold;
   font-size: 55px;
 }
@@ -53,7 +55,17 @@ img {
   align-items: center;
   text-align: center;
   font-size: 0.7rem;
-  /* padding: 20px 30px 10px 10px; */
+}
+
+.condition {
+  position: relative;
+  margin-left: 8px;
+}
+
+.condition-name {
+  position: absolute;
+  top: 75px;
+  left: 9px;
 }
 
 .weather-data {
@@ -79,4 +91,10 @@ img {
 #forecast img {
   height: 40px;
   width: 40px;
+}
+
+#divider {
+  border-style: solid;
+  border-left: thick;
+  height: 50px;
 }

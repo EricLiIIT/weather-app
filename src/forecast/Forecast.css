@@ -11,6 +11,9 @@
   justify-content: space-evenly;
 }
 
+.forecast:hover {
+}
+
 .forecast > * {
   justify-content: space-evenly;
 }
