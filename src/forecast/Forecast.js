@@ -1,16 +1,19 @@
 import { Day } from "./Day";
 import "./Forecast.css";
+
 const Forecast = (props) => {
-  function handleClick() {
-    console.log("forecast item clicked");
+  function handleClick(index) {
+    props.handleSelectedDay(index);
   }
+
   return (
-    <div className="forecast" onClick={handleClick}>
+    <div className="forecast">
       <Day
         day={props.day}
         maxTemp={props.maxTemp}
         minTemp={props.minTemp}
         weatherCode={props.weatherCode}
+        handleClick={handleClick}
       />
     </div>
   );

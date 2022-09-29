@@ -29,6 +29,7 @@ function App() {
   const [sunrise, setSunrise] = useState([]);
   const [sunset, setSunset] = useState([]);
   const [precipitation, setPrecipitation] = useState([]);
+  const [maxWindSpeed, setMaxWindSpeed] = useState([]);
 
   useEffect(() => {
     getWeatherData(latitude, longitude).then(
@@ -48,6 +49,7 @@ function App() {
         setSunrise(forecast.sunrise);
         setSunset(forecast.sunset);
         setPrecipitation(forecast.precipitation_sum);
+        setMaxWindSpeed(forecast.windspeed_10m_max);
       },
       (error) => {
         setError(error);
@@ -94,6 +96,11 @@ function App() {
     alert(`Unable to retrieve your location: ${error}`);
   }
 
+  function handleSelectedDay(day) {
+    setSelectedDay(day);
+    console.log(day);
+  }
+
   if (!navigator.geolocation) {
     locateError();
   }
@@ -106,13 +113,16 @@ function App() {
           weather={current}
           city={location}
           weatherCode={currentCondition}
+          selectedWeatherCode={weatherCode}
           currentTemp={currentTemp}
           maxTemp={maxTemp}
           minTemp={minTemp}
           precipitation={precipitation}
           sunrise={sunrise}
           sunset={sunset}
+          maxWindSpeed={maxWindSpeed}
           currentWindSpeed={currentWindSpeed}
+          selectedDay={selectedDay}
           error={error}
         />
         <Forecast
@@ -122,9 +132,7 @@ function App() {
           maxTemp={maxTemp}
           minTemp={minTemp}
           day={day}
-          sunrise={sunrise}
-          sunset={sunset}
-          precipitation={precipitation}
+          handleSelectedDay={handleSelectedDay}
           error={error}
         />
       </main>

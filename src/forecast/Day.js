@@ -1,5 +1,6 @@
 import "./Day.css";
 import { weatherConditionCode } from "../services/WeatherCodes";
+import React, { useState } from "react";
 
 export const Day = (props) => {
   function convertToDay(date) {
@@ -16,6 +17,14 @@ export const Day = (props) => {
     return daysOfTheWeek[day];
   }
 
+  const [selectedDay, setSelectedDay] = useState(0);
+
+  // retrieve index of forecasted day
+  function onClick(event) {
+    let index = event.currentTarget.getAttribute("data-index");
+    props.handleClick(index);
+  }
+
   let lowestWeeklyTemp = props.minTemp.reduce((prev, curr) =>
     Math.min(prev, curr)
   );
@@ -27,7 +36,12 @@ export const Day = (props) => {
   console.log(props.weatherCode);
 
   return props.day.map((i, index) => (
-    <div className="day-of-the-week" key={i}>
+    <div
+      className="day-of-the-week"
+      key={i}
+      data-index={index}
+      onClick={onClick}
+    >
       <div className="day">{convertToDay(props.day[index])}</div>
       <div className="temperature-data">
         <p className="min-temp">{props.minTemp[index]}&deg;</p>

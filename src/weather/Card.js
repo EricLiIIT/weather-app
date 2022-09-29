@@ -25,13 +25,10 @@ const Card = (props) => {
     }
   }
 
-  if (
-    props.error ||
-    (!weatherConditionCode[props.weatherCode] && props.weather === "current")
-  ) {
-    console.log("error");
+  if (props.error || !weatherConditionCode[props.weatherCode]) {
+    console.log("error:", props.error);
     return <div>Error: {props.error}</div>;
-  } else {
+  } else if (!props.selectedDay) {
     return (
       <div className="current-weather">
         <span>
@@ -74,6 +71,54 @@ const Card = (props) => {
           </p>
           <p>
             <small>Sunset:</small> {convertDate(props.sunset[0])} PM
+          </p>
+        </span>
+      </div>
+    );
+  } else if (props.selectedDay) {
+    let day = props.selectedDay;
+    return (
+      <div className="current-weather">
+        <span>
+          <div className="city">
+            <h1>{props.city}</h1>
+          </div>
+          <div>
+            <div className="weather-condition">
+              <p className="current-temp">{props.maxTemp[day]}&deg;</p>
+              <p id="divider"></p>
+              <div className="condition">
+                <img
+                  src={require(`../weather-icons/${
+                    weatherConditionCode[props.selectedWeatherCode[day]][1]
+                  }.png`)}
+                  alt={weatherConditionCode[props.selectedWeatherCode[day]][1]}
+                />
+                <div className="condition-name">
+                  {weatherConditionCode[props.selectedWeatherCode[day]][0]}
+                </div>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span className="weather-details">
+          <p>
+            <small>Hi:</small> {props.maxTemp[day]}&deg;
+          </p>
+          <p>
+            <small>Lo:</small> {props.minTemp[day]}&deg;
+          </p>
+          <p>
+            <small>Precip:</small> {props.precipitation[day]} in
+          </p>
+          <p>
+            <small>Wind Speed:</small> {props.maxWindSpeed[day]} mph
+          </p>
+          <p>
+            <small>Sunrise:</small> {convertDate(props.sunrise[day])} AM
+          </p>
+          <p>
+            <small>Sunset:</small> {convertDate(props.sunset[day])} PM
           </p>
         </span>
       </div>
