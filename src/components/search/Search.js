@@ -4,7 +4,7 @@ import { GrMapLocation } from "react-icons/gr";
 import "./Search.css";
 
 const Search = (props) => {
-  const [location, setLocation] = useState("Chicago");
+  const [location, setLocation] = useState("");
 
   function search(event) {
     props.onManualSearch(event, location);
