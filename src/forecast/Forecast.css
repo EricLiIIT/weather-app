@@ -10,6 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   overflow: auto;
+  background-color: white;
 }
 
 .forecast > * {

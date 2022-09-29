@@ -11,6 +11,7 @@ img {
   border-radius: 20px;
   margin-right: 50px;
   margin-left: auto;
+  background-color: white;
 }
 
 .weather-card > span {

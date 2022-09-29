@@ -99,7 +99,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app">
       <Search onManualSearch={manualSearch} onLocate={locate} />
       <main className="weather">
         <Card
@@ -144,7 +144,15 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Drop icon by Vectors Market
+          Drop icon by Vectors Market.
+        </a>
+        <a
+          href="https://www.freepik.com/free-vector/gorgeous-clouds-background-with-blue-sky-design_8562848.htm"
+          title="background"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Clouds background by starline.
         </a>
       </footer>
     </div>
