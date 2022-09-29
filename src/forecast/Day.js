@@ -1,4 +1,6 @@
 import "./Day.css";
+import { weatherConditionCode } from "../services/WeatherCodes";
+
 export const Day = (props) => {
   function convertToDay(date) {
     const day = new Date(date).getDay();
@@ -22,6 +24,8 @@ export const Day = (props) => {
     Math.max(prev, curr)
   );
 
+  console.log(props.weatherCode);
+
   return props.day.map((i, index) => (
     <div className="day-of-the-week" key={i}>
       <div className="day">{convertToDay(props.day[index])}</div>
@@ -34,6 +38,12 @@ export const Day = (props) => {
           max={highestWeeklyTemp}
         ></meter>
         <p className="max-temp">{props.maxTemp[index]}&deg;</p>
+        <img
+          src={require(`../weather-icons/${
+            weatherConditionCode[props.weatherCode[index]][1]
+          }.png`)}
+          alt={weatherConditionCode[props.weatherCode[index]][1]}
+        />
       </div>
     </div>
   ));

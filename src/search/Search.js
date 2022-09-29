@@ -13,6 +13,7 @@ const Search = (props) => {
   function handleInput(event) {
     setLocation(event.target.value);
   }
+
   return (
     <div className="form-container">
       <form onSubmit={search}>

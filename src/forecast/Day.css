@@ -10,6 +10,7 @@
 }
 
 .day-of-the-week > .day {
+  margin-left: 5px;
   min-width: 40px;
 }
 
@@ -32,4 +33,9 @@
   margin-bottom: 15px;
   min-width: 70px;
   margin-left: 30px;
+}
+
+img {
+  height: 35px;
+  width: 35px;
 }
