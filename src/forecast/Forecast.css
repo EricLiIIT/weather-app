@@ -6,4 +6,11 @@
   border-width: 2px;
   margin-right: 50px;
   margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.forecast > * {
+  justify-content: space-evenly;
 }
