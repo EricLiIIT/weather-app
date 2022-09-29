@@ -9,8 +9,8 @@ img {
   border-style: solid;
   border-width: 2px;
   border-radius: 20px;
-  margin-left: 50px;
-  margin-right: auto;
+  margin-right: 50px;
+  margin-left: auto;
 }
 
 .weather-card > span {

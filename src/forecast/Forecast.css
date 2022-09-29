@@ -4,8 +4,8 @@
   border-style: solid;
   border-radius: 20px;
   border-width: 2px;
-  margin-right: 50px;
-  margin-left: auto;
+  margin-left: 50px;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

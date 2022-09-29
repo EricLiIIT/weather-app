@@ -102,19 +102,6 @@ function App() {
     <div>
       <Search onManualSearch={manualSearch} onLocate={locate} />
       <main className="weather">
-        <Forecast
-          weather={forecast}
-          city={location}
-          weatherCode={weatherCode}
-          maxTemp={maxTemp}
-          minTemp={minTemp}
-          day={day}
-          sunrise={sunrise}
-          sunset={sunset}
-          precipitation={precipitation}
-          error={error}
-        />
-
         <Card
           weather={current}
           city={location}
@@ -126,6 +113,18 @@ function App() {
           sunrise={sunrise}
           sunset={sunset}
           currentWindSpeed={currentWindSpeed}
+          error={error}
+        />
+        <Forecast
+          weather={forecast}
+          city={location}
+          weatherCode={weatherCode}
+          maxTemp={maxTemp}
+          minTemp={minTemp}
+          day={day}
+          sunrise={sunrise}
+          sunset={sunset}
+          precipitation={precipitation}
           error={error}
         />
       </main>
