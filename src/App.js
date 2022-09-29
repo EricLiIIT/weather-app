@@ -34,7 +34,6 @@ function App() {
   useEffect(() => {
     getWeatherData(latitude, longitude).then(
       (response) => {
-        console.log("weather res:", response);
         let current = response.current_weather;
         let forecast = response.daily;
         // setLocation(location);

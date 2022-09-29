@@ -33,8 +33,6 @@ export const Day = (props) => {
     Math.max(prev, curr)
   );
 
-  console.log(props.weatherCode);
-
   return props.day.map((i, index) => (
     <div
       className="day-of-the-week"
