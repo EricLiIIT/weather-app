@@ -3,8 +3,13 @@
   align-items: center;
 }
 
+.day-of-the-week:hover {
+  cursor: pointer;
+  background-color: #549df0;
+  transition: 0.7s;
+}
+
 .day-of-the-week > .day {
-  margin-left: 5px;
   min-width: 40px;
 }
 

@@ -8,10 +8,8 @@
   margin-left: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-}
-
-.forecast:hover {
+  justify-content: space-between;
+  overflow: auto;
 }
 
 .forecast > * {
