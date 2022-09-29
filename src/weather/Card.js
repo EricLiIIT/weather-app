@@ -57,12 +57,24 @@ const Card = (props) => {
           </div>
         </span>
         <span className="weather-details">
-          <p>Hi: {props.maxTemp[0]}&deg;</p>
-          <p>Lo: {props.minTemp[0]}&deg;</p>
-          <p>Precip: {props.precipitation[0]} in</p>
-          <p>Wind Speed: {props.currentWindSpeed} mph</p>
-          <p>Sunrise: {convertDate(props.sunrise[0])} AM</p>
-          <p>Sunset: {convertDate(props.sunset[0])} PM</p>
+          <p>
+            <small>Hi:</small> {props.maxTemp[0]}&deg;
+          </p>
+          <p>
+            <small>Lo:</small> {props.minTemp[0]}&deg;
+          </p>
+          <p>
+            <small>Precip:</small> {props.precipitation[0]} in
+          </p>
+          <p>
+            <small>Wind Speed:</small> {props.currentWindSpeed} mph
+          </p>
+          <p>
+            <small>Sunrise:</small> {convertDate(props.sunrise[0])} AM
+          </p>
+          <p>
+            <small>Sunset:</small> {convertDate(props.sunset[0])} PM
+          </p>
         </span>
       </div>
     );

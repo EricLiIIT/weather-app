@@ -3,6 +3,11 @@ img {
   width: 90px;
 }
 
+small {
+  font-size: 15px;
+  color: grey;
+}
+
 .current-weather {
   height: 400px;
   width: 400px;
