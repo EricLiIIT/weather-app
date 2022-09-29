@@ -20,7 +20,7 @@ const Search = (props) => {
         <p>
           <label htmlFor="city">City: </label>
           <input
-            type="text"
+            type="search"
             name="city"
             id="city"
             value={location}

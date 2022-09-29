@@ -1,10 +1,10 @@
-import Search from "./search/Search";
 import { useEffect, useState } from "react";
-import { getCityCoordinates } from "./services/GetCity";
-import { getWeatherData } from "./services/GetWeatherData";
-import { getCityName } from "./services/GetCity";
-import Card from "./weather/Card.js";
-import Forecast from "./forecast/Forecast";
+import { getCityCoordinates } from "./components/services/GetCity";
+import { getWeatherData } from "./components/services/GetWeatherData";
+import { getCityName } from "./components/services/GetCity";
+import Search from "./components/search/Search";
+import Card from "./components/weather/Card.js";
+import Forecast from "./components/forecast/Forecast";
 import "./App.css";
 
 function App() {
@@ -58,12 +58,13 @@ function App() {
 
   function manualSearch(event, location) {
     event.preventDefault();
-    getCityCoordinates(location)
+    let formattedCityName = location[0].toUpperCase() + location.slice(1);
+    getCityCoordinates(formattedCityName)
       .then((response) => {
         let city = response.addresses[0];
         setLatitude(city.latitude);
         setLongitude(city.longitude);
-        setLocation(location);
+        setLocation(formattedCityName);
       })
       .catch((error) => {
         console.log(`Error in App.js, ${error}`);
@@ -97,7 +98,6 @@ function App() {
 
   function handleSelectedDay(day) {
     setSelectedDay(day);
-    console.log(day);
   }
 
   if (!navigator.geolocation) {

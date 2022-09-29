@@ -1,6 +1,5 @@
 import "./Day.css";
 import { weatherConditionCode } from "../services/WeatherCodes";
-import React, { useState } from "react";
 
 export const Day = (props) => {
   function convertToDay(date) {
@@ -16,8 +15,6 @@ export const Day = (props) => {
     };
     return daysOfTheWeek[day];
   }
-
-  const [selectedDay, setSelectedDay] = useState(0);
 
   // retrieve index of forecasted day
   function onClick(event) {
