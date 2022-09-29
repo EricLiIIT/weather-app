@@ -36,7 +36,7 @@ function App() {
         console.log("weather res:", response);
         let current = response.current_weather;
         let forecast = response.daily;
-        setLocation(location);
+        // setLocation(location);
         setCurrentTemp(current.temperature);
         setCurrentWindSpeed(current.windspeed);
         setCurrentCondition(current.weathercode);
@@ -53,7 +53,7 @@ function App() {
         setError(error);
       }
     );
-  }, [latitude, longitude, location]);
+  }, [latitude, longitude]);
 
   function manualSearch(event, location) {
     event.preventDefault();
@@ -76,16 +76,15 @@ function App() {
 
   function success(position) {
     let pos = position.coords;
-    setLatitude(pos.latitude);
-    setLongitude(pos.longitude);
-    getCityName(latitude, longitude)
+    getCityName(pos.latitude, pos.longitude)
       .then((response) => {
         setLocation(response.addresses[0].city);
+        setLatitude(pos.latitude);
+        setLongitude(pos.longitude);
       })
       .catch((error) => {
         console.log(`Error in App.js: ${error}`);
       });
-    console.log("successfully got location");
   }
 
   function locateError(error) {

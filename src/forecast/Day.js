@@ -22,8 +22,6 @@ export const Day = (props) => {
     Math.max(prev, curr)
   );
 
-  console.log(props.maxTemp);
-
   return props.day.map((i, index) => (
     <div className="day-of-the-week" key={i}>
       <div className="day">{convertToDay(props.day[index])}</div>
