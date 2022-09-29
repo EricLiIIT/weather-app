@@ -46,7 +46,7 @@ img {
 }
 
 .weather-details > * {
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 40px;
 }
 
 .weather-condition {
@@ -64,8 +64,9 @@ img {
 
 .condition-name {
   position: absolute;
+  text-align: center;
+  width: 90px;
   top: 75px;
-  left: 9px;
 }
 
 .weather-data {
