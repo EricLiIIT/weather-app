@@ -43,6 +43,7 @@ export const Day = (props) => {
             weatherConditionCode[props.weatherCode[index]][1]
           }.png`)}
           alt={weatherConditionCode[props.weatherCode[index]][1]}
+          className="forecast-icon"
         />
       </div>
     </div>
