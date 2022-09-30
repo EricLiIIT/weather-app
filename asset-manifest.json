@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/weather-app/static/css/main.3607e2db.css",
+    "main.js": "/weather-app/static/js/main.f3ded437.js",
+    "static/js/787.d9312eb8.chunk.js": "/weather-app/static/js/787.d9312eb8.chunk.js",
+    "static/media/clouds.jpg": "/weather-app/static/media/clouds.fe6cd0d8bcd5c44cd7c0.jpg",
+    "static/media/snow.png": "/weather-app/static/media/snow.ceaf2b0c48588b033ce6.png",
+    "static/media/clear.png": "/weather-app/static/media/clear.df89b1d87fff9b2870e9.png",
+    "static/media/cloud-2.png": "/weather-app/static/media/cloud-2.8dbcc091ba4432a8cd87.png",
+    "static/media/thunderstorm.png": "/weather-app/static/media/thunderstorm.f9775acb69a2c9074bc0.png",
+    "static/media/heavy-rain.png": "/weather-app/static/media/heavy-rain.273b1f021dd0783ba47e.png",
+    "static/media/rain.png": "/weather-app/static/media/rain.26ecb489ace0550f14e9.png",
+    "static/media/cloud.png": "/weather-app/static/media/cloud.c52f70c201f773916b23.png",
+    "index.html": "/weather-app/index.html",
+    "main.3607e2db.css.map": "/weather-app/static/css/main.3607e2db.css.map",
+    "main.f3ded437.js.map": "/weather-app/static/js/main.f3ded437.js.map",
+    "787.d9312eb8.chunk.js.map": "/weather-app/static/js/787.d9312eb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3607e2db.css",
+    "static/js/main.f3ded437.js"
+  ]
+}
