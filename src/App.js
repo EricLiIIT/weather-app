@@ -3,7 +3,7 @@ import { getCityCoordinates } from "./components/services/GetCity";
 import { getWeatherData } from "./components/services/GetWeatherData";
 import { getCityName } from "./components/services/GetCity";
 import Search from "./components/search/Search";
-import Card from "./components/weather/Card.js";
+import Card from "./components/current/Card.js";
 import Forecast from "./components/forecast/Forecast";
 import "./App.css";
 

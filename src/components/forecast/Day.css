@@ -28,8 +28,8 @@
   font-size: 0.8em;
   margin-top: 15px;
   margin-bottom: 15px;
-  min-width: 70px;
-  margin-left: 30px;
+  min-width: 55px;
+  margin-left: 25px;
 }
 
 .temperature-data > .max-temp {
@@ -37,5 +37,5 @@
   margin-top: 15px;
   margin-bottom: 15px;
   min-width: 70px;
-  margin-left: 30px;
+  margin-left: 25px;
 }

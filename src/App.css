@@ -14,7 +14,6 @@ body > * {
 
 .weather {
   display: flex;
-  flex-wrap: wrap;
   margin-top: 50px;
 }
 
@@ -45,14 +44,37 @@ a:hover {
   transition: 0.5s;
 }
 
-@media (max-width: 768px) {
-  .forecast {
-    flex-flow: column;
+@media (max-width: 600px) {
+  .weather {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-@media (max-width: 767px) {
-  .forecast {
-    flex-flow: column;
+@media (min-width: 600px) {
+  .weather {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .weather {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .weather {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .weather {
+    display: flex;
+    flex-direction: row;
   }
 }

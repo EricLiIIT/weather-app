@@ -1,7 +1,19 @@
 import "./Day.css";
 import { weatherConditionCode } from "../services/WeatherCodes";
+import React, { useState } from "react";
 
 export const Day = (props) => {
+  const [meterColor, setMeterColor] = useState("");
+  const colors = {
+    cold: 51,
+    warm: 80,
+    hot: 81,
+  };
+
+  // const changeMeterColor (props.) {
+
+  // }
+
   function convertToDay(date) {
     const day = new Date(date).getDay();
     const daysOfTheWeek = {
@@ -41,7 +53,7 @@ export const Day = (props) => {
       <div className="temperature-data">
         <p className="min-temp">{props.minTemp[index]}&deg;</p>
         <meter
-          className="temperature-range"
+          className="temperature-range cold"
           value={(props.maxTemp[index] + props.minTemp[index]) / 2}
           min={lowestWeeklyTemp}
           max={highestWeeklyTemp}
