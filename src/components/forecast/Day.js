@@ -10,10 +10,6 @@ export const Day = (props) => {
     hot: 81,
   };
 
-  // const changeMeterColor (props.) {
-
-  // }
-
   function convertToDay(date) {
     const day = new Date(date).getDay();
     const daysOfTheWeek = {
