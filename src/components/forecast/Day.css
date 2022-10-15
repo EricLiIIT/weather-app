@@ -3,6 +3,10 @@
   width: 35px;
 }
 
+.selected-day {
+  background-color: #57abff67;
+}
+
 .day-of-the-week {
   display: flex;
   align-items: center;

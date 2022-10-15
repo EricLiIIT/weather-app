@@ -3,6 +3,8 @@ import { weatherConditionCode } from "../services/WeatherCodes";
 import React, { useState } from "react";
 
 export const Day = (props) => {
+  const blue = "#57abff67";
+
   const [meterColor, setMeterColor] = useState("");
   const colors = {
     cold: 51,
@@ -13,6 +15,7 @@ export const Day = (props) => {
   function convertToDay(date, index) {
     const day = new Date(date).getDay();
     if (index === 0) return "Today";
+
     const daysOfTheWeek = {
       0: "Mon",
       1: "Tues",
@@ -28,7 +31,16 @@ export const Day = (props) => {
   // retrieve index of forecasted day
   function onClick(event) {
     let index = event.currentTarget.getAttribute("data-index");
+    let day = event.currentTarget;
+    let forecastList = [...document.querySelectorAll(".day-of-the-week")];
+    for (let i = 0; i < forecastList.length; i++) {
+      if (forecastList[i].classList.contains("selected-day")) {
+        forecastList[i].classList.toggle("selected-day");
+      }
+    }
+    day.classList.toggle("selected-day");
     props.handleClick(index);
+    // day.style.backgroundColor = blue;
   }
 
   let lowestWeeklyTemp = props.minTemp.reduce((prev, curr) =>
