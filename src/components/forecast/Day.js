@@ -10,8 +10,9 @@ export const Day = (props) => {
     hot: 81,
   };
 
-  function convertToDay(date) {
+  function convertToDay(date, index) {
     const day = new Date(date).getDay();
+    if (index === 0) return "Today";
     const daysOfTheWeek = {
       0: "Mon",
       1: "Tues",
@@ -45,7 +46,7 @@ export const Day = (props) => {
       data-index={index}
       onClick={onClick}
     >
-      <div className="day">{convertToDay(props.day[index])}</div>
+      <div className="day">{convertToDay(props.day[index], index)}</div>
       <div className="temperature-data">
         <p className="min-temp">{props.minTemp[index]}&deg;</p>
         <meter
