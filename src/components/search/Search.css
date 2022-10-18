@@ -8,10 +8,18 @@ div form {
 .btn {
   margin-left: 10px;
   vertical-align: middle;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: white;
+  transition: 0.7s;
 }
 
 .btn:hover {
   cursor: pointer;
+  background-color: #bbddff;
+  transition: 0.7s;
 }
 
 input#city {
