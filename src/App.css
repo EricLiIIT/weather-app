@@ -2,26 +2,14 @@ html {
   height: 100vh;
 }
 
-body {
-  background-image: url(./images/clouds.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
-
-body > * {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.app {
-  margin-top: 100px;
-}
-
 .weather {
   display: flex;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.app {
+  margin-top: none;
 }
 
 footer {
@@ -51,13 +39,19 @@ a:hover {
   transition: 0.5s;
 }
 
-@media (max-width: 599px) {
+@media (max-width: 600px) {
+  .app {
+    margin-top: 2rem;
+  }
+
   .weather {
     display: flex;
     flex-direction: column;
   }
 
   body {
+    background-image: none;
+    background-color: #4d99e7;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,19 +64,18 @@ a:hover {
 }
 
 @media (min-width: 600px) {
-  /* html {
-    height: 100%;
-  } */
+  .app {
+    margin-top: 2rem;
+  }
+
   .weather {
     display: flex;
     flex-direction: column;
   }
 
   body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    background-image: none;
+    background-color: #4d99e7;
   }
 
   footer {
@@ -91,12 +84,18 @@ a:hover {
 }
 
 @media only screen and (min-width: 768px) {
+  .app {
+    margin-top: 100px;
+  }
+
   .weather {
     display: flex;
     flex-direction: row;
   }
 
   body {
+    background-image: url(./images/clouds.jpg);
+    background-repeat: no-repeat;
     background-size: cover;
   }
 
@@ -109,10 +108,6 @@ a:hover {
   .weather {
     display: flex;
     flex-direction: row;
-  }
-
-  body {
-    background-size: cover;
   }
 }
 
