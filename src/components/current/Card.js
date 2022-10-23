@@ -2,7 +2,6 @@ import "./Card.css";
 import { weatherConditionCode } from "../services/WeatherCodes";
 
 const Card = (props) => {
-  console.log(props.city);
   function convertDate(date) {
     const date1 = new Date(date);
     if (date1.getHours() > 12) {

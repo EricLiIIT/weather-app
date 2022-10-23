@@ -62,10 +62,13 @@ function App() {
     getCityCoordinates(formattedCityName)
       .then((response) => {
         console.log(response);
-        let city = response.addresses[0];
-        setLatitude(city.latitude);
-        setLongitude(city.longitude);
-        setLocation(city.city);
+        let location = response.addresses[0];
+        setLatitude(location.latitude);
+        setLongitude(location.longitude);
+        !location.city
+          ? setLocation(location.country)
+          : setLocation(location.city);
+        // setLocation(city.city);
       })
       .catch((error) => {
         console.log(`Error in App.js, ${error}`);

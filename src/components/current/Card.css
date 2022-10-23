@@ -9,6 +9,9 @@ small {
 }
 
 .current-weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   height: 400px;
   width: 400px;
   border-style: solid;
@@ -19,23 +22,15 @@ small {
   background-color: white;
 }
 
-.weather-card > span {
-  display: flex;
-  justify-content: space-between;
-}
-
-.city,
-.date {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.city {
+  white-space: nowrap;
   text-align: center;
 }
 
 .city h1,
 .date h1 {
   text-align: center;
-  font-size: 60px;
+  font-size: 40px;
   margin-top: 10px;
   margin-bottom: 0px;
 }
