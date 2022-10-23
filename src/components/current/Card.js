@@ -4,10 +4,16 @@ import { weatherConditionCode } from "../services/WeatherCodes";
 const Card = (props) => {
   function convertDate(date) {
     const date1 = new Date(date);
+    // console.log(date1.getMinutes());
+
     if (date1.getHours() > 12) {
-      return `${date1.getHours() - 12}:${date1.getMinutes()}`;
+      return `${date1.getHours() - 12}:${
+        date1.getMinutes() < 10 ? 0 : ""
+      }${date1.getMinutes()}`;
     } else {
-      return `${date1.getHours()}:${date1.getMinutes()}`;
+      return `${date1.getHours()}:${
+        date1.getMinutes() < 10 ? 0 : ""
+      }${date1.getMinutes()}`;
     }
   }
 

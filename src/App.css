@@ -1,6 +1,12 @@
+html {
+  height: 100vh;
+}
+
 body {
   background-image: url(./images/clouds.jpg);
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 
 body > * {
@@ -45,14 +51,17 @@ a:hover {
   transition: 0.5s;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 599px) {
   .weather {
     display: flex;
     flex-direction: column;
   }
 
   body {
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   footer {
@@ -61,13 +70,19 @@ a:hover {
 }
 
 @media (min-width: 600px) {
+  /* html {
+    height: 100%;
+  } */
   .weather {
     display: flex;
     flex-direction: column;
   }
 
   body {
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   footer {
